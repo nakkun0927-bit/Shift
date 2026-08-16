@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>シフト表</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header>
+  <h1>シフト表</h1>
+  <p class="sub">社外共有用スケジュール</p>
+  <div class="controls">
+    <select id="monthSelect" aria-label="対象月を選択"></select>
+    <button class="ghost" id="todayBtn" type="button">今日へ</button>
+  </div>
+</header>
+
+<div class="legend">
+  <span class="chip"><span class="dot" style="background:#1f4e78"></span>勤務時間</span>
+  <span class="chip"><span class="dot" style="background:#9aa4ad"></span>休み</span>
+  <span class="chip"><span class="dot" style="background:#8b5fbf"></span>有給休暇</span>
+</div>
+
+<main>
+  <div class="note" id="monthNote"></div>
+  <div id="dayList"></div>
+</main>
+
+<footer>
+  <div id="footerText"></div>
+</footer>
+
+<script src="/assets/view.js"></script>
+</body>
+</html>

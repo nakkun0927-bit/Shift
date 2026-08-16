@@ -1,0 +1,14 @@
+{
+  "name": "shift-schedule-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "社外共有用シフト表（閲覧用サイト + 管理者用ページ）",
+  "dependencies": {
+    "@netlify/blobs": "*",
+    "@netlify/identity": "*"
+  },
+  "devDependencies": {
+    "@netlify/functions": "*"
+  }
+}

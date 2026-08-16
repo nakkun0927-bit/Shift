@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シフト表 - 管理者ページ</title>
+<link rel="stylesheet" href="/assets/style.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>シフト表 管理者ページ</h1>
+  <p class="sub" id="userInfo">読み込み中…</p>
+  <div class="controls" id="headerControls"></div>
+</header>
+
+<div id="authGate" class="auth-gate hidden">
+  <p>このページはログインしたスタッフのみ編集できます。<br>右上のボタンからログインしてください。</p>
+  <button class="primary" id="loginBtn" type="button">ログイン</button>
+</div>
+
+<main class="wide" id="adminMain" style="display:none;">
+
+  <div class="panel">
+    <h2>■ メンバー管理</h2>
+    <div class="member-list" id="memberList"></div>
+    <div class="add-row">
+      <input type="text" id="newMemberName" placeholder="新しいメンバーの氏名">
+      <button class="primary" id="addMemberBtn" type="button">追加</button>
+    </div>
+    <div class="grid-actions">
+      <button class="primary" id="saveMembersBtn" type="button">メンバー構成を保存</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>■ 月のシフト管理</h2>
+    <div class="month-toolbar">
+      <select id="monthSelect"></select>
+      <button class="subtle" id="newMonthToggleBtn" type="button">＋ 新しい月を追加</button>
+      <button class="danger" id="deleteMonthBtn" type="button">この月を削除</button>
+    </div>
+
+    <div class="new-month-form" id="newMonthForm">
+      <label>年
+        <input type="number" id="newYear" min="2020" max="2100">
+      </label>
+      <label>月
+        <input type="number" id="newMonth" min="1" max="12">
+      </label>
+      <label style="flex-direction:row; align-items:center; gap:6px;">
+        <input type="checkbox" id="copyPrevCheck" checked>
+        前月と同じ並びをコピーして下書き作成
+      </label>
+      <button class="primary" id="createMonthBtn" type="button">作成</button>
+      <button class="subtle" id="cancelNewMonthBtn" type="button">キャンセル</button>
+    </div>
+
+    <div class="grid-scroll">
+      <table class="shift-grid" id="shiftGrid"></table>
+    </div>
+
+    <div class="grid-actions">
+      <button class="primary" id="saveMonthBtn" type="button">このシフトを保存</button>
+      <span style="font-size:12px;color:var(--muted);align-self:center;">
+        入力欄は候補一覧から選ぶか、直接時間を入力できます（例: 10:00-19:00）
+      </span>
+    </div>
+  </div>
+
+  <p style="text-align:center;">
+    <a href="/index.html" style="font-size:12px;color:var(--muted);">→ 閲覧用ページを見る</a>
+  </p>
+
+</main>
+
+<datalist id="presets">
+  <option value="7:00-16:00">
+  <option value="9:00-18:00">
+  <option value="13:00-22:00">
+  <option value="休">
+  <option value="有">
+</datalist>
+
+<div class="toast" id="toast"></div>
+
+<script src="/assets/admin.js"></script>
+</body>
+</html>
