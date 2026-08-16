@@ -33,5 +33,16 @@
 </footer>
 
 <script src="/assets/view.js"></script>
+
+<!-- Needed so that invite / password-reset links (which point to this
+     top-level page) can be completed here, even though this page itself
+     has no login UI. After finishing, it sends the user to /admin. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    netlifyIdentity.on('login', () => { window.location.href = '/admin'; });
+    netlifyIdentity.init();
+  }
+</script>
 </body>
 </html>
